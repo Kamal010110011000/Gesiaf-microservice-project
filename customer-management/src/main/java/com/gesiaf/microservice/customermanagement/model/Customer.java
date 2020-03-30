@@ -17,6 +17,8 @@ public class Customer {
 	
 	private String email;
 	
+	private String password;
+	
 	private Date dob;
 	
 	private Long phone;
@@ -25,16 +27,16 @@ public class Customer {
 	
 	public Customer() {}
 
-	public Customer(Long id, String name, String email, Date dob, Long phone, Address address) {
+	public Customer(Long id, String name, String email, Date dob, Long phone, Address address,String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.dob = dob;
 		this.phone = phone;
+		this.password = password;
 		this.address = address;
 	}
-
 
 
 	public Long getId() {
@@ -84,6 +86,13 @@ public class Customer {
 	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
-	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 }
