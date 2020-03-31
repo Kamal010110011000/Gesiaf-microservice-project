@@ -3,17 +3,20 @@ package com.gesiaf.microservice.customermanagement.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.gesiaf.microservice.customermanagement.model.Customer;
 import com.gesiaf.microservice.customermanagement.repo.CustomerRepository;;
 
+@Component
 public class CustomerService {
 
 	@Autowired
 	private CustomerRepository customerRepository;
 	
-	public void saveCustomers(Customer customer) {
+	public Customer saveCustomers(Customer customer) {
 		customerRepository.save(customer);
+		return customer;
 	}
 	
 	public Iterable<Customer> getCustomers() {
@@ -23,9 +26,9 @@ public class CustomerService {
 	}
 	
 	public Optional<Customer> getCustomer(Long id) {
-		Optional<Customer> customer;
-		customer = customerRepository.findById(id);
+		Optional<Customer> customers;
+		customers = customerRepository.findById(id);
 		
-		return customer;
+		return customers;
 	}
 }

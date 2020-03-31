@@ -1,7 +1,5 @@
 package com.gesiaf.microservice.customermanagement.model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,23 +17,18 @@ public class Customer {
 	
 	private String password;
 	
-	private Date dob;
-	
 	private Long phone;
-	
-	private Address address;
 	
 	public Customer() {}
 
-	public Customer(Long id, String name, String email, Date dob, Long phone, Address address,String password) {
+	public Customer(Long id, String name, String email, Long phone,String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		this.dob = dob;
 		this.phone = phone;
 		this.password = password;
-		this.address = address;
+		
 	}
 
 
@@ -63,21 +56,6 @@ public class Customer {
 		this.email = email;
 	}
 
-	public Date getDob() {
-		return dob;
-	}
-
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 
 	public Long getPhone() {
 		return phone;

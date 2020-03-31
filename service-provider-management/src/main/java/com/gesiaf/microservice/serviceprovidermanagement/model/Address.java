@@ -1,4 +1,4 @@
-package com.gesiaf.microservice.customermanagement.model;
+package com.gesiaf.microservice.serviceprovidermanagement.model;
 
 public class Address {
 
@@ -6,28 +6,24 @@ public class Address {
 	
 	private String locality;
 	
-	private String nearby;
-	
 	private String city;
 	
 	private String state;
 	
 	private String country;
 	
-	private int pin_code;
-	
-	public Address() {}
+	private int pin;
 
-	public Address(String house_no, String locality, String nearby, String city, String state, String country,
-			int pin_code) {
+	public Address() {}
+	
+	public Address(String house_no, String locality, String city, String state, String country, int pin) {
 		super();
 		this.house_no = house_no;
 		this.locality = locality;
-		this.nearby = nearby;
 		this.city = city;
 		this.state = state;
 		this.country = country;
-		this.pin_code = pin_code;
+		this.pin = pin;
 	}
 
 	public String getHouse_no() {
@@ -44,14 +40,6 @@ public class Address {
 
 	public void setLocality(String locality) {
 		this.locality = locality;
-	}
-
-	public String getNearby() {
-		return nearby;
-	}
-
-	public void setNearby(String nearby) {
-		this.nearby = nearby;
 	}
 
 	public String getCity() {
@@ -78,13 +66,15 @@ public class Address {
 		this.country = country;
 	}
 
-	public int getPin_code() {
-		return pin_code;
+	public int getPin() {
+		return pin;
 	}
 
-	public void setPin_code(int pin_code) {
-		this.pin_code = pin_code;
+	public void setPin(int pin) {
+		this.pin = pin;
 	}
+	
+	
 	
 	
 }
