@@ -14,8 +14,10 @@ public class ProviderJobService {
 	@Autowired
 	private ServiceProviderRepository serviceProviderRepository;
 	
-	public void saveProvider(ServiceProvider serviceProvider) {
+	public ServiceProvider saveProvider(ServiceProvider serviceProvider) {
 		serviceProviderRepository.save(serviceProvider);
+		
+		return serviceProvider;
 	}
 	
 	public Iterable<ServiceProvider> getServiceProviders(){

@@ -15,8 +15,10 @@ public class JobService {
 	@Autowired
 	private OccupationRepository occupationRepository;
 	
-	public void save(Occupation occupation) {
-		occupationRepository.save(occupation);	
+	public Occupation save(Occupation occupation) {
+		occupationRepository.save(occupation);
+		
+		return occupation;
 	}
 	
 	public Iterable<Occupation> getOccupations(){

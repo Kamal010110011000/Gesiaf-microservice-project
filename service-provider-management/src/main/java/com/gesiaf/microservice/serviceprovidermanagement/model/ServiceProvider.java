@@ -4,11 +4,14 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class ServiceProvider {
@@ -23,22 +26,28 @@ public class ServiceProvider {
 	
 	private Long phone;
 	
-	private Address address;
+	//private Address address;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	private int pin;
+	
+	private String address;
+	
+	@ManyToMany(fetch= FetchType.LAZY ,cascade = CascadeType.ALL)
+	@JsonIgnore
 	@JoinTable(name= "occupation_service", 
 			joinColumns = @JoinColumn(name = "provider_id", referencedColumnName = "id"),
 	        inverseJoinColumns = @JoinColumn(name = "occupation_id", referencedColumnName = "id"))
 	private Set<Occupation> occupations;
 	
-	
+	public ServiceProvider() {}
 
-	public ServiceProvider(Long id, String name, String email, Long phone, Address address) {
+	public ServiceProvider(Long id, String name, String email, Long phone, int pin, String address) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
+		this.pin = pin;
 		this.address = address;
 	}
 
@@ -74,11 +83,19 @@ public class ServiceProvider {
 		this.phone = phone;
 	}
 
-	public Address getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public int getPin() {
+		return pin;
+	}
+
+	public void setPin(int pin) {
+		this.pin = pin;
+	}
+
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
@@ -92,8 +109,11 @@ public class ServiceProvider {
 
 	@Override
 	public String toString() {
-		return "ServiceProvider [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + "]";
+		return "ServiceProvider [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", address="
+				+ address + ", occupations=" + occupations + "]";
 	}
+
+	
 	
 	
 	
