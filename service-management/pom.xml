@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.gesiaf.microservice</groupId>
-	<artifactId>customer-management</artifactId>
+	<artifactId>service-management</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>customer-management</name>
+	<name>service-management</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
