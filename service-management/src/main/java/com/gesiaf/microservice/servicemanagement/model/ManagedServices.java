@@ -1,10 +1,13 @@
 package com.gesiaf.microservice.servicemanagement.model;
 
+import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class ManagedServices {
@@ -21,28 +24,29 @@ public class ManagedServices {
 	
 	private Date date;
 	
-	private String jobDesc;
+	private Time start_time;
 	
-	private double payment;
+	private Time end_time;
 	
-	private String paymentType;
+	@OneToMany(mappedBy = "managed_services")
+	private List<ServiceCharges> service_charges;
 	
-	
-
 	public ManagedServices() {	}
+	
 
-	public ManagedServices(Long id, Long userId, Long serviceProviderId, Long serviceId, Date date, String jobDesc,
-			double payment, String paymentType) {
+	public ManagedServices(Long id, Long userId, Long serviceProviderId, Long serviceId, Date date, Time start_time,
+			Time end_time) {
 		super();
 		this.id = id;
 		this.userId = userId;
 		this.serviceProviderId = serviceProviderId;
 		this.serviceId = serviceId;
 		this.date = date;
-		this.jobDesc = jobDesc;
-		this.payment = payment;
-		this.paymentType = paymentType;
+		this.start_time = start_time;
+		this.end_time = end_time;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -84,36 +88,30 @@ public class ManagedServices {
 		this.date = date;
 	}
 
-	public String getJobDesc() {
-		return jobDesc;
+	public Date getStart_time() {
+		return start_time;
 	}
 
-	public void setJobDesc(String jobDesc) {
-		this.jobDesc = jobDesc;
+	public void setStart_time(Time start_time) {
+		this.start_time = start_time;
 	}
 
-	public double getPayment() {
-		return payment;
+	public Date getEnd_time() {
+		return end_time;
 	}
 
-	public void setPayment(double payment) {
-		this.payment = payment;
+	public void setEnd_time(Time end_time) {
+		this.end_time = end_time;
 	}
 
-	public String getPaymentType() {
-		return paymentType;
+	public List<ServiceCharges> getService_charges() {
+		return service_charges;
 	}
 
-	public void setPaymentType(String paymentType) {
-		this.paymentType = paymentType;
+	public void setService_charges(List<ServiceCharges> service_charges) {
+		this.service_charges = service_charges;
 	}
 
-	@Override
-	public String toString() {
-		return "ManagedServices [id=" + id + ", userId=" + userId + ", serviceProviderId=" + serviceProviderId
-				+ ", serviceId=" + serviceId + ", date=" + date + ", jobDesc=" + jobDesc + ", payment=" + payment
-				+ ", paymentType=" + paymentType + "]";
-	}
 	
 	
 }

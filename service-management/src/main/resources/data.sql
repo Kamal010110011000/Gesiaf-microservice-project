@@ -1,4 +1,8 @@
-insert into managed_services( id, user_id, service_provider_id, service_id, date, job_desc, payment, payment_type) 
-values( 10001, 100001, 10001, 10001, '2020-05-13 00:00:00', 'i need to make a website with something', '2000.50', 'Cash on work'); 
-insert into managed_services( id, user_id, service_provider_id, service_id, date, job_desc, payment, payment_type) 
-values( 10002, 100001, 10002, 10001, '2020-05-13 00:00:00', 'i need to make a website with something', '2500.50', 'Cash on work'); 
+insert into managed_services( id, user_id, service_provider_id, service_id, date, start_time, end_time) 
+values( 10001, 100001, 10001, 10001, '2020-05-13 00:00:00', '10:10:10', '10:50:10'); 
+insert into managed_services( id, user_id, service_provider_id, service_id, date, start_time, end_time) 
+values( 10002, 100001, 10002, 10001, '2020-05-13 00:00:00', '10:10:10', '10:50:10'); 
+
+insert into service_charges(id, service,price, managed_services_id) values(101,'hair cut',100,10001);
+insert into service_charges(id, service,price, managed_services_id) values(102,'shave',50,10001);
+insert into service_charges(id, service,price, managed_services_id) values(103,'massage',150,10001);
