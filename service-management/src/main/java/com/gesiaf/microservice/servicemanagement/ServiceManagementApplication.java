@@ -10,7 +10,7 @@ import brave.sampler.Sampler;
 
 
 @SpringBootApplication
-@EnableFeignClients("com.gesiaf.microservice.servicemanagement")
+@EnableFeignClients("com.gesiaf.microservice.servicemanagement.proxy")
 @EnableDiscoveryClient
 public class ServiceManagementApplication {
 

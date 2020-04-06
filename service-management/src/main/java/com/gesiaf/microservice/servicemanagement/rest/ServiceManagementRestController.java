@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gesiaf.microservice.servicemanagement.ServiceManagementProxy;
 import com.gesiaf.microservice.servicemanagement.model.ServiceManagement;
+import com.gesiaf.microservice.servicemanagement.proxy.ServiceManagementProxy;
 
 @RestController
 public class ServiceManagementRestController {

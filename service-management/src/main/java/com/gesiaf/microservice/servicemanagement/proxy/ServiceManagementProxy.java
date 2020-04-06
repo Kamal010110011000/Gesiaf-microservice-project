@@ -1,4 +1,4 @@
-package com.gesiaf.microservice.servicemanagement;
+package com.gesiaf.microservice.servicemanagement.proxy;
 
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -12,8 +12,8 @@ import com.gesiaf.microservice.servicemanagement.model.ServiceManagement;
 @RibbonClient(name="customer-management")
 public interface ServiceManagementProxy {
 
-//	@GetMapping("/service-provider-management/services/{id}/providers")
-//	public ServiceManagement retrieveExchangeValue(@PathVariable("id") Long id );
+	@GetMapping("/service-provider-management/services/{id}/providers")
+	public ServiceManagement retrieveExchangeValue(@PathVariable("id") Long id );
 	
 	@GetMapping("/customer-management/api/customers/{id}")
 	public ServiceManagement retrieveCustomerValue(@PathVariable("id") Long id );
